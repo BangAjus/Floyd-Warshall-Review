@@ -20,22 +20,22 @@ int main(){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
             if(g[i][j] == 0){
+                    g[i][j] = 999;
+            }
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(g[i][j] == 999){
                 continue;
             }
             else{
                 if(i > j){
                 g[i][j] = g[j][i];
             }
-            else{
+            else {
                 cout << "Bobot vertex " << i << j << " : "; cin >> g[i][j];
             }
-            }
-        }
-    }
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(g[i][j] == 0){
-                    g[i][j] = 999;
             }
         }
     }
@@ -49,7 +49,7 @@ int main(){
 					g[i][j] = g[i][j];
 				}
 				else {
-					if (g[i][j] < (g[i][k] + g[k][j]) && (g[k][j] != 999 && g[i][k] != 999)){
+					if (g[i][j] < (g[i][k] + g[k][j])){
 						g[i][j] = g[i][j];
 					}
                     else if(g[i][j] > (g[i][k] + g[k][j]) && (g[k][j] != 999 && g[i][k] != 999)){
@@ -62,13 +62,14 @@ int main(){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
             if(i > j){
-                g[i][j] = g[j][i];
+                cout << " " << " ";
             }
-        }
-    }
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            cout << g[i][j] << " ";
+            else if(i < j){
+                cout << g[i][j] << " ";
+            }
+            else {
+                cout << g[i][j] << " ";
+            }
         }
         cout << endl;
     }
